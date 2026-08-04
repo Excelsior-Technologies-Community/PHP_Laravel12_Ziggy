@@ -1,6 +1,8 @@
 import './bootstrap';
-import route from 'ziggy-js';
+import { route } from 'ziggy-js';
 import { Ziggy } from './ziggy';
+
+window.Ziggy = Ziggy;
 
 // Make route() function globally available
 window.route = (name, params = {}, absolute = true) => {
