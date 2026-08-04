@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Existing Demo Routes
+| Home Routes
 |--------------------------------------------------------------------------
 */
 
@@ -52,31 +52,45 @@ Route::get('/post/{category}/{slug}', function ($category, $slug) {
         'category' => $category,
         'slug' => $slug
     ]);
-
 })->name('post.details');
-
 
 /*
 |--------------------------------------------------------------------------
-| New Feature : Route Inspector
+| Route Inspector
 |--------------------------------------------------------------------------
 */
 
 Route::get('/route-inspector', function () {
-
     return view('route-inspector');
-
 })->name('route.inspector');
-
 
 /*
 |--------------------------------------------------------------------------
-| New Feature : Route Playground
+| Route Playground
 |--------------------------------------------------------------------------
 */
 
 Route::get('/route-playground', function () {
-
     return view('route-playground');
-
 })->name('route.playground');
+
+/*
+|--------------------------------------------------------------------------
+| NEW FEATURE : Favorite Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/favorites', function () {
+    return view('favorites');
+})->name('favorites');
+
+/*
+|--------------------------------------------------------------------------
+| NEW FEATURE : Route Tester
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/route-tester', function () {
+    return view('route-tester');
+})->name('route.tester');
+
