@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+
+/*
+|--------------------------------------------------------------------------
+| Existing Demo Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,20 +20,63 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-// Route with parameters example
+/*
+|--------------------------------------------------------------------------
+| Required Parameter
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/user/{id}', function ($id) {
-    return view('user', ['id' => $id]);
+    return view('user', compact('id'));
 })->name('user.profile');
 
-// Optional parameter example
+/*
+|--------------------------------------------------------------------------
+| Optional Parameter
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/product/{id?}', function ($id = null) {
-    return view('product', ['id' => $id]);
+    return view('product', compact('id'));
 })->name('product.show');
 
-// Multiple parameters example
+/*
+|--------------------------------------------------------------------------
+| Multiple Parameters
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/post/{category}/{slug}', function ($category, $slug) {
+
     return view('post', [
         'category' => $category,
         'slug' => $slug
     ]);
+
 })->name('post.details');
+
+
+/*
+|--------------------------------------------------------------------------
+| New Feature : Route Inspector
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/route-inspector', function () {
+
+    return view('route-inspector');
+
+})->name('route.inspector');
+
+
+/*
+|--------------------------------------------------------------------------
+| New Feature : Route Playground
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/route-playground', function () {
+
+    return view('route-playground');
+
+})->name('route.playground');
